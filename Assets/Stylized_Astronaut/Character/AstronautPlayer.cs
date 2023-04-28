@@ -20,15 +20,21 @@ namespace AstronautPlayer
 		}
 
 		void FixedUpdate (){
-			if (Input.GetKey ("w")) {
-				anim.SetInteger ("AnimationPar", 1);
-			}  else {
-				anim.SetInteger ("AnimationPar", 0);
-			}
+			float v = Input.GetAxis("Vertical");
+
 
 			if(controller.isGrounded){
-				float v = Input.GetAxis("Vertical");
+				
 				if (v < 0) v = 0;
+
+				if (v > 0)
+                {
+					anim.SetInteger("AnimationPar", 1);
+				}
+				else
+                {
+					anim.SetInteger("AnimationPar", 0);
+				}
 				moveDirection = transform.forward * v * speed;
 			}
 

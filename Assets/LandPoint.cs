@@ -32,12 +32,12 @@ public class LandPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.JoystickButton6))
         {
             Application.Quit();
         }
 
-        if (ready && Input.GetKey(KeyCode.Return))
+        if (ready && (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.JoystickButton7)))
         {
             Debug.Log("Go!");
             astronaut.SetActive(false);
